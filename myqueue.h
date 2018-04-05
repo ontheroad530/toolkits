@@ -14,7 +14,7 @@ class MyQueue
 public:
     MyQueue(size_t queue_size) :m_queueSize(queue_size)
     {
-        for(int i = 0; i < queue_size; ++i)
+        for(size_t i = 0; i < queue_size; ++i)
         {
             m_queue.push_back( new T() );
         }
