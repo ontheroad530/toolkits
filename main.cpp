@@ -3,15 +3,32 @@
 
 #include <unistd.h>
 
+#include "threadlocal.h"
+
 void test_lock_queue();
 void test_timer();
+void test_thread_local();
 
 int main()
 {
 //    test_lock_queue();
-    test_timer();
+//    test_timer();
+
+    test_thread_local();
 
     return 0;
+}
+
+void test_thread_local()
+{
+    gyh::ThreadLocal<std::string>   str;
+
+    auto print = [&](){ std::cout << str.value() << std::endl; };
+    std::thread thr1([&](){ print(); str.value() = "hello"; print();});
+    std::thread thr2([&](){ print(); str.value() = "world"; print();});
+
+    thr1.join();
+    thr2.join();
 }
 
 void test_timer()
