@@ -13,7 +13,7 @@ namespace gyh {
                        assert(errnum == 0); (void) errnum;})
 
 template<typename T>
-class ThreadLocal : public boost::noncopyable
+class ThreadLocal : boost::noncopyable
 {
 public:
     ThreadLocal()

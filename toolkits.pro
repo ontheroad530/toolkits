@@ -17,5 +17,6 @@ HEADERS += \
     lockfree/lock_free_pool.h \
     lockfree/lock_free_queue.h \
     lockfree/tagged.h \
-    threadlocal.h
+    threadlocal.h \
+    singleton.h
 
